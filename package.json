@@ -1,5 +1,5 @@
 {
-  "name": "forensics-docs",
+  "name": "pkgviz-docs",
   "version": "0.0.1",
   "scripts": {
     "docusaurus": "docusaurus",

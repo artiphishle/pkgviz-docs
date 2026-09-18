@@ -6,10 +6,11 @@ const __dirname = path.dirname(__filename);
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Forensics',
+  title: 'PKGViz',
+  tagline: 'Package dependency and architecture analysis',
   url: 'https://artiphishle.github.io',
-  baseUrl: '/forensics-docs/',
-  projectName: 'forensics-docs',
+  baseUrl: '/pkgviz-docs/',
+  projectName: 'pkgviz-docs',
   organizationName: 'artiphishle',
   trailingSlash: false,
 

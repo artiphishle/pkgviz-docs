@@ -1,16 +1,31 @@
-# Forensics Docs
+# PKGViz Docs
 
-Find the official docs here: [artiphishle.github.io/forensics-docs](https://artiphishle.github.io/forensics-docs)
+Standalone Docusaurus documentation for [PKGViz](https://github.com/artiphishle/pkgviz).
 
-## Quickstart
+Published documentation:
+
+https://artiphishle.github.io/pkgviz-docs/
+
+## Development
 
 ```bash
-# Build
-pnpm build
-
-# Serve
-pnpm serve
-
-# Deployment
-pnpm deploy
+npm install
+npm start
 ```
+
+## Build
+
+```bash
+npm run build
+npm run serve
+```
+
+## Deployment
+
+Docusaurus deploys the generated site to the repository's `gh-pages` branch:
+
+```bash
+npm run deploy
+```
+
+The documentation content is intentionally maintained separately from the PKGViz application repository.
