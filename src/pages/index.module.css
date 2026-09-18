@@ -1,23 +1,65 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
-  padding: 4rem 0;
+  padding: 7rem 0 6rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--ifm-color-primary) 18%, transparent), transparent 30rem),
+    radial-gradient(circle at 80% 10%, color-mix(in srgb, var(--ifm-color-primary-light) 14%, transparent), transparent 26rem),
+    var(--ifm-background-color);
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.eyebrow {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ifm-color-primary);
+}
+
+.heroTitle {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: clamp(2.7rem, 6vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.heroSubtitle {
+  max-width: 760px;
+  margin: 1.8rem auto 0;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.65;
+  color: var(--ifm-color-content-secondary);
 }
 
 .buttons {
   display: flex;
+  gap: 0.9rem;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.2rem;
+}
+
+.command {
+  display: inline-flex;
+  margin-top: 2rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.75rem;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.command code {
+  border: 0;
+  background: transparent;
+  font-size: 0.95rem;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4.5rem 1.5rem;
+  }
 }
