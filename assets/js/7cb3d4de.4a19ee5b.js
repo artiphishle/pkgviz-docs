@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkpkgviz_docs=self.webpackChunkpkgviz_docs||[]).push([[685],{4034:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/pkgviz-docs/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
