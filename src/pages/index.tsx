@@ -1,26 +1,33 @@
 import type { ReactNode } from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={styles.heroBanner}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+        <div className={styles.eyebrow}>OPEN-SOURCE ARCHITECTURE ANALYSIS</div>
+        <Heading as="h1" className={styles.heroTitle}>
+          See your dependency structure before it becomes a problem.
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className={styles.heroSubtitle}>
+          PKGViz turns source projects into an interactive package graph and a portable audit with
+          concrete dependency evidence.
+        </p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/intro">
-            Documentation
+          <Link className="button button--primary button--lg" to="/docs/getting-started">
+            Run your first audit
           </Link>
+          <Link className="button button--secondary button--lg" to="/docs/intro">
+            Explore PKGViz
+          </Link>
+        </div>
+        <div className={styles.command}>
+          <code>bunx pkgviz</code>
         </div>
       </div>
     </header>
@@ -28,11 +35,10 @@ function HomepageHeader() {
 }
 
 export default function Home(): ReactNode {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title="Open-source package dependency and architecture analysis"
+      description="Visualize package dependencies, find cyclic dependencies with evidence, and export portable architecture audits across TypeScript, Java, C++, Python, Delphi, and Kotlin."
     >
       <HomepageHeader />
       <main>
