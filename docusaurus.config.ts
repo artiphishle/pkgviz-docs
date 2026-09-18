@@ -15,19 +15,6 @@ const config = {
   trailingSlash: false,
   favicon: 'img/favicon.ico',
 
-  metadata: [
-    {
-      name: 'description',
-      content:
-        'PKGViz is an open-source package dependency and architecture analysis tool with interactive graphs, cyclic-dependency evidence, multi-language parsers, and portable audit output.',
-    },
-    {
-      name: 'keywords',
-      content:
-        'dependency graph, software architecture, cyclic dependencies, static analysis, TypeScript, Java, C++, Python, Delphi, Kotlin',
-    },
-  ],
-
   presets: [
     [
       'classic',
@@ -44,6 +31,18 @@ const config = {
   ],
 
   themeConfig: {
+    metadata: [
+      {
+        name: 'description',
+        content:
+          'PKGViz is an open-source package dependency and architecture analysis tool with interactive graphs, cyclic-dependency evidence, multi-language parsers, and portable audit output.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'dependency graph, software architecture, cyclic dependencies, static analysis, TypeScript, Java, C++, Python, Delphi, Kotlin',
+      },
+    ],
     navbar: {
       title: 'PKGViz',
       items: [
