@@ -11,9 +11,10 @@ The site covers the complete user-facing PKGViz workflow:
 - project and language detection
 - dependency parsing for TypeScript, Java, C++, Python, Delphi, and Kotlin
 - interactive package graph visualization
-- cyclic-dependency evidence
+- cyclic-dependency evidence and audit rule policies
 - JSON and XML audit output
 - CLI usage and local viewer setup
+- Maven and GitHub Actions CI integration
 - architecture, development, testing, and current project status
 
 ## Development
