@@ -14,8 +14,18 @@ At a high level:
 
 ```json
 {
+  "configuration": {
+    "failOnRuleViolation": true,
+    "rules": [
+      {
+        "id": "cyclic-dependencies",
+        "mode": "block"
+      }
+    ]
+  },
   "evaluation": {
-    "cyclicPackages": []
+    "cyclicPackages": [],
+    "rules": []
   },
   "files": {},
   "meta": {
@@ -28,6 +38,21 @@ At a high level:
 ```
 
 The exact nested file and dependency data depends on the selected parser.
+
+## Configuration
+
+`configuration` records the effective audit policy used for the run.
+
+Each rule has one mode:
+
+- `off`: disabled
+- `audit`: evaluated and recorded as advisory
+- `block`: evaluated and recorded as blocking
+
+The current default is `cyclic-dependencies=block` with `failOnRuleViolation=true`.
+
+Keeping the effective policy in the artifact makes an audit self-describing: downstream tooling can
+see not only what PKGViz found, but also how that run was configured to treat the finding.
 
 ## Metadata
 
@@ -76,6 +101,14 @@ Conceptually:
 
 This is deliberately more useful than a boolean `hasCycles`: downstream tooling can explain *why* a relationship was reported.
 
+## Rule results
+
+`evaluation.rules` contains the evaluated audit-rule results. A result records its rule id, status,
+policy, message, details, and rule-specific evidence.
+
+For `cyclic-dependencies`, the result can therefore distinguish between the same detected cycle
+being advisory or blocking without changing the underlying dependency evidence.
+
 ## JSON from the CLI
 
 ```bash
@@ -88,6 +121,9 @@ or:
 bunx pkgviz --out reports/pkgviz.json
 ```
 
+The CLI writes the artifact before enforcing blocking rules. This means a CI build can fail on a
+blocking rule and still retain the audit for inspection.
+
 ## JSON and XML from the viewer
 
 The settings panel exposes audit downloads in both formats.
@@ -96,10 +132,9 @@ XML is a serialization of the same current audit object; JSON should generally b
 
 ## Audit rules and CI
 
-PKGViz's architecture treats audit/rule behavior as reusable logic that should not be owned by the UI. Build-tool integrations are expected to consume the shared audit/rule contract rather than reimplementing analysis.
+Audit and rule behavior is shared outside the UI. The CLI exposes rule configuration directly, and
+the Maven adapter forwards the same contract instead of reimplementing analysis in Java.
 
-The first mandatory blocking architecture rule targeted by the project is `cyclic-dependencies`.
+The first implemented rule is `cyclic-dependencies`.
 
-:::note Current versus target architecture
-The portable audit and cyclic dependency evaluation exist today. The broader rule engine and build-tool/CI integration surface is still being modularized, so integrations should be documented as they become released public APIs rather than assumed from internal code.
-:::
+See [CI integrations](./ci.md) for ready-to-use GitHub Actions and Maven configurations.

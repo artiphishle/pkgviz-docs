@@ -5,9 +5,10 @@ title: Getting started
 
 # Getting started
 
-There are two practical ways to use PKGViz today:
+There are three practical ways to use PKGViz today:
 
 - generate an `audit.json` directly from a project with the CLI
+- enforce or collect architecture rules in CI
 - run the PKGViz application locally for interactive visualization
 
 ## Prerequisites
@@ -40,6 +41,12 @@ bunx pkgviz --out reports/pkgviz-audit.json
 ```
 
 PKGViz constrains the output path to the selected project root.
+
+The default audit rule policy blocks cyclic dependencies. Use
+`--rule cyclic-dependencies=audit` for an advisory result or
+`--no-fail-on-rule-violation` to preserve blocking findings without failing because of them.
+
+For CI setup, continue with [CI integrations](./ci.md).
 
 ## Run the interactive viewer
 
@@ -104,6 +111,7 @@ At a high level PKGViz:
 5. parses files and import relationships
 6. builds the package dependency graph
 7. identifies cyclic components and keeps evidence for their edges
-8. exposes the result to the viewer or serializes it as an audit
+8. evaluates configured audit rules
+9. exposes the result to the viewer or serializes it as an audit
 
 Continue with [Language support](./languages.md) for parser-specific behavior.
