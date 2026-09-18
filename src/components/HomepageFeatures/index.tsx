@@ -1,58 +1,47 @@
 import type { ReactNode } from 'react';
 import clsx from 'clsx';
-import styles from './styles.module.css';
 
-// Import new SVGs
-import CodeAnalysisSvg from './CodeAnalysis.svg';
-import PerformanceOptimizationSvg from './PerformanceOptimization.svg';
-import OpenSourceSvg from './OpenSource.svg';
+import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Code Analysis',
-    Svg: CodeAnalysisSvg,
+    title: 'From source to structure',
     description: (
       <>
-        Advanced code analysis tools to help you understand and improve your codebase. Built with
-        TypeScript and functional programming principles.
+        Detect the project language, parse imports and packages, classify dependencies, and turn
+        source structure into a graph you can reason about.
       </>
     ),
   },
   {
-    title: 'Performance Optimization',
-    Svg: PerformanceOptimizationSvg,
+    title: 'Evidence, not just red lines',
     description: (
       <>
-        Optimize your application's performance with our comprehensive tools and metrics. Monitor
-        and improve your code's efficiency.
+        Cyclic dependencies retain the files and imports that create each cycle edge, so findings
+        can be traced back to concrete source evidence.
       </>
     ),
   },
   {
-    title: 'Open Source',
-    Svg: OpenSourceSvg,
+    title: 'Human and machine readable',
     description: (
       <>
-        Built on open-source principles. Contribute, collaborate, and help improve the project for
-        everyone.
+        Explore the graph interactively or export an audit for reviews, automation, CI integrations,
+        and tooling that should not depend on the UI.
       </>
     ),
   },
 ];
 
-function Feature({ title, Svg, description }: FeatureItem) {
+function Feature({ title, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
+      <div className="padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
@@ -65,8 +54,8 @@ export default function HomepageFeatures(): ReactNode {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {FeatureList.map(feature => (
+            <Feature key={feature.title} {...feature} />
           ))}
         </div>
       </div>
