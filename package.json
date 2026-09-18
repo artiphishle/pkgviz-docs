@@ -1,6 +1,19 @@
 {
   "name": "pkgviz-docs",
   "version": "0.0.1",
+  "description": "Documentation, guides, and reference for PKGViz codebase analysis and visualization.",
+  "keywords": [
+    "pkgviz",
+    "documentation",
+    "docusaurus",
+    "code-analysis",
+    "dependency-graph",
+    "architecture",
+    "visualization",
+    "developer-tools",
+    "typescript",
+    "reference"
+  ],
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
