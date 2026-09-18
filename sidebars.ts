@@ -5,6 +5,7 @@ const sidebars: SidebarsConfig = {
     'intro',
     'getting-started',
     'cli',
+    'ci',
     {
       type: 'category',
       label: 'Understand PKGViz',
